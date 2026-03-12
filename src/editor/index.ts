@@ -1259,9 +1259,13 @@ class ProofEditorImpl implements ProofEditor {
     // Initialize agent integration for @proof mentions
     this.initAgentIntegration();
 
-    // Theme picker only applies to regular editor mode.
+    // Theme picker + theme application.
+    const configTheme = (window as Window & { __PROOF_CONFIG__?: { defaultTheme?: string } }).__PROOF_CONFIG__?.defaultTheme;
     if (!this.isShareMode) {
-      initThemePicker();
+      initThemePicker({ defaultTheme: (configTheme as any) || undefined });
+    } else if (configTheme) {
+      // In share mode, apply the configured theme directly (no picker UI needed).
+      document.documentElement.setAttribute('data-theme', configTheme);
     }
 
     // If in CLI mode, load the file from the API
@@ -6099,7 +6103,7 @@ class ProofEditorImpl implements ProofEditor {
   setTheme(theme: string): void {
     const themePicker = getThemePicker();
     if (themePicker) {
-      themePicker.setTheme(theme as 'default' | 'whitey');
+      themePicker.setTheme(theme as 'default' | 'whitey' | 'stripe');
     }
 
     if (this.editor) {

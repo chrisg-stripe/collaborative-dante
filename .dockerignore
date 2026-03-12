@@ -14,3 +14,7 @@ plans/
 docs/*
 !docs/agent-docs.md
 .git
+.env
+.env.*
+!.env.template
+snapshots

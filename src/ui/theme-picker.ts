@@ -1,4 +1,4 @@
-export type Theme = 'default' | 'whitey';
+export type Theme = 'default' | 'whitey' | 'stripe';
 
 export interface ThemePickerOptions {
   defaultTheme?: Theme;
@@ -25,7 +25,7 @@ export class ThemePicker {
 
   private loadSavedTheme(): Theme {
     const saved = localStorage.getItem('proof-theme');
-    if (saved === 'whitey' || saved === 'default') {
+    if (saved === 'whitey' || saved === 'default' || saved === 'stripe') {
       return saved;
     }
     return 'default';

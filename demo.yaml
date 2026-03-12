@@ -1,0 +1,45 @@
+# min 5 chars
+name: "Proof Editor"
+
+# acct_xxxx (not needed for this internal tool)
+acct_id:
+
+# https://<subdomain>.stripedemos.com
+subdomain: "proof-editor"
+
+# Billing, Connect, Issuing, Payments, Radar, Other
+category: "Other"
+
+# comma separated keywords
+tags: "node, collaborative-editing, dante, ai-agent"
+
+# min 5 chars
+description: "Stripe-internal Proof collaborative editor with Dante agent bridge"
+
+# Slack username
+creator: chrisg
+
+# port
+port: 4000
+
+# private
+private: false
+
+# the slack channel of your team (ex: #solutions)
+team: "#velocity"
+
+# enter a simple password here you can provide to your customer
+# leave blank for no password
+password:
+
+# date you want your deployment to be deleted prior to 6 mos
+# format: 2021-06-01
+exp_date:
+
+# all demos have a max deployment life of 6 months
+# unless you set the following to true
+persistent: true
+
+# if you need to reduce coldstarts, say how many instances you want
+# see https://cloud.google.com/run/docs/configuring/min-instances#command-line
+min_instances: 1
